@@ -28,23 +28,18 @@ const displayTasks = (data) => {
       activityName.Tasks.map(singleTask => {
         let taskElement = document.createElement("div")
         taskElement.className="task"
-
-        let name = document.createElement("p")
-        name.className="task-name"
-        name.innerHTML=singleTask.taskName
-
-        let description = document.createElement("p")
-        description.className="task-description"
-        description.innerHTML=singleTask.taskDescription
-
-        let day = document.createElement("p")
-        day.className="task-day"
-        day.innerHTML = singleTask.days[0]
-
-        taskElement.appendChild(name)
-        taskElement.appendChild(description)
-        taskElement.appendChild(day)
-
+        let taskNameElement = document.createElement("p")
+        taskNameElement.className="task-name"
+        taskNameElement.innerHTML=singleTask.taskName
+        let taskDescriptionElement = document.createElement("p")
+        taskDescriptionElement.className="task-description"
+        taskDescriptionElement.innerHTML=singleTask.taskDescription
+        let taskDayElement = document.createElement("p")
+        taskDayElement.className="task-day"
+        taskDayElement.innerHTML = singleTask.days[0]
+        taskElement.appendChild(taskNameElement)
+        taskElement.appendChild(taskDescriptionElement)
+        taskElement.appendChild(taskDayElement)
         activityElement.appendChild(taskElement)
       })
       categoryElement.appendChild(activityElement)
