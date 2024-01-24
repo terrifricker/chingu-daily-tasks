@@ -9,11 +9,7 @@ const getTasks = () => {
 }
 
 const displayTasks = (data) => {
-  console.log("data ", data)
   data.map((category) => {
-    console.log("category ", category)
-    console.log("activityTypes ", category.activityTypes)
-
     let categoryElement = document.createElement("div")
     categoryElement.className="category"
     let categoryHeadingElement = document.createElement("h2")
@@ -22,10 +18,6 @@ const displayTasks = (data) => {
     categoryElement.appendChild(categoryHeadingElement)
 
     category.activityTypes.map(activityName => {
-      
-      console.log("activityName ", activityName)
-      console.log("taskList ", activityName.Tasks)
-
       let activityElement = document.createElement("div")
       activityElement.className="activity"
       let activityHeadingElement = document.createElement("h3")
@@ -34,10 +26,6 @@ const displayTasks = (data) => {
       activityElement.appendChild(activityHeadingElement)
 
       activityName.Tasks.map(singleTask => {
-
-        console.log(singleTask)
-        console.log(singleTask.days)
-
         let taskElement = document.createElement("div")
         taskElement.className="task"
 
@@ -58,11 +46,8 @@ const displayTasks = (data) => {
         taskElement.appendChild(day)
 
         activityElement.appendChild(taskElement)
-        console.log(activityElement)
       })
-
       categoryElement.appendChild(activityElement)
-      console.log(categoryElement)
     })
     root.appendChild(categoryElement)
   })
