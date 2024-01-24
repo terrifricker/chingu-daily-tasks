@@ -9,11 +9,7 @@ const getTasks = () => {
 }
 
 const displayTasks = (data) => {
-  console.log("data ", data)
   data.map((category) => {
-    console.log("category ", category)
-    console.log("activityTypes ", category.activityTypes)
-
     let categoryElement = document.createElement("div")
     categoryElement.className="category"
     let categoryHeadingElement = document.createElement("h2")
@@ -22,10 +18,6 @@ const displayTasks = (data) => {
     categoryElement.appendChild(categoryHeadingElement)
 
     category.activityTypes.map(activityName => {
-      
-      console.log("activityName ", activityName)
-      console.log("taskList ", activityName.Tasks)
-
       let activityElement = document.createElement("div")
       activityElement.className="activity"
       let activityHeadingElement = document.createElement("h3")
@@ -34,35 +26,23 @@ const displayTasks = (data) => {
       activityElement.appendChild(activityHeadingElement)
 
       activityName.Tasks.map(singleTask => {
-
-        console.log(singleTask)
-        console.log(singleTask.days)
-
         let taskElement = document.createElement("div")
         taskElement.className="task"
-
-        let name = document.createElement("p")
-        name.className="task-name"
-        name.innerHTML=singleTask.taskName
-
-        let description = document.createElement("p")
-        description.className="task-description"
-        description.innerHTML=singleTask.taskDescription
-
-        let day = document.createElement("p")
-        day.className="task-day"
-        day.innerHTML = singleTask.days[0]
-
-        taskElement.appendChild(name)
-        taskElement.appendChild(description)
-        taskElement.appendChild(day)
-
+        let taskNameElement = document.createElement("p")
+        taskNameElement.className="task-name"
+        taskNameElement.innerHTML=singleTask.taskName
+        let taskDescriptionElement = document.createElement("p")
+        taskDescriptionElement.className="task-description"
+        taskDescriptionElement.innerHTML=singleTask.taskDescription
+        let taskDayElement = document.createElement("p")
+        taskDayElement.className="task-day"
+        taskDayElement.innerHTML = singleTask.days[0]
+        taskElement.appendChild(taskNameElement)
+        taskElement.appendChild(taskDescriptionElement)
+        taskElement.appendChild(taskDayElement)
         activityElement.appendChild(taskElement)
-        console.log(activityElement)
       })
-
       categoryElement.appendChild(activityElement)
-      console.log(categoryElement)
     })
     root.appendChild(categoryElement)
   })
